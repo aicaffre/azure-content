@@ -14,7 +14,9 @@ Yes, you can use your own public ASNs or private ASNs for both your on-premises 
 
 No, you must assign different ASNs between your on-premises networks and your Azure VNets if you are connecting them together with BGP. Azure VPN Gateways have a default ASN of 65515 assigned, whether BGP is enabled for not for your cross-premises connectivity. You can override this default by assigning a different ASN when creating the VPN gateway, or change the ASN after the gateway is created. You will need to assign your on-premises ASNs to the corresponding Azure Local Network Gateways.
 
+### Will Azure force me to select a valid ASN?
 
+No, hence please ensure you verify you have selected a valid ASN within the range of 0 to 65535. If you don't do this, the VPN Gateway will create fine, but later when you try and add BGP enabled Connections, the Connection will fail to ever reach the Connected state.
 
 ### What address prefixes will Azure VPN gateways advertise to me?
 
